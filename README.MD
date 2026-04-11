@@ -15,7 +15,7 @@
     
 ## Требования
 
-- **PHP:** 7.4 или выше.
+- **PHP:** 7.0 или выше.
     
 - **Расширения:** `curl`, `pdo_sqlite`, `pdo_mysql`, `json`.
     
@@ -88,9 +88,9 @@ SDK предоставляет готовый интерфейс для полу
 
 ## 📊 Доступ к графикам (Iframe)
 
-Для вставки графиков на сторонние страницы или в другие части мониторинга используйте `chart_frame.php`:
+Для вставки графиков на сторонние страницы или в другие части мониторинга используйте `chart_iframe.php`:
 
-**URL:** `домен/NDirectSdk/chart_frame.php?type={METRIC}&days={DAYS}`
+**URL:** `домен/NDirectSdk/chart_iframe.php?type={METRIC}&days={DAYS}`
 
 - **Метрики (`type`):** `unique` (уникальные), `installs` (установки), `connects` (коннекты), `uninstalls` (удаления).
     
@@ -100,7 +100,7 @@ SDK предоставляет готовый интерфейс для полу
 **Пример вставки:**
 
 ```html
-<iframe src="https://домен/NDirectSdk/chart_frame.php?type=unique&days=14" width="100%" height="400" frameborder="0"></iframe>
+<iframe src="https://домен/NDirectSdk/chart_iframe.php?type=unique&days=14" width="100%" height="400" frameborder="0"></iframe>
 ```
 
     

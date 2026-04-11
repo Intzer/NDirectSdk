@@ -160,6 +160,44 @@ abstract class AbstractIntegration implements IntegrationInterface
         return $serversConnects;
     }
 
+    public function getServersConnectsTodayYesterday()
+    {
+        $serversConnectsToday = [];
+		$serversConnectsYesterday = [];
+
+		$connectsRaw = $this->getConnects(1);
+
+		if (!empty($connectsRaw))
+		{
+			$connects = json_decode($connectsRaw, true);
+
+			if (is_array($connects)) 
+			{
+                $today = date("Y-m-d");
+                
+				foreach ($connects as $date => $events) 
+				{
+					if (is_array($events))
+					{
+						foreach ($events as $event) 
+						{
+							if (isset($event['server'])) 
+							{
+								if ($today == $date) {
+									$serversConnectsToday[$event['server']][] = $event;
+								} else {
+									$serversConnectsYesterday[$event['server']][] = $event;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+        return ['today' => $serversConnectsToday, 'yesterday' => $serversConnectsYesterday];
+    }
+
     public function getServerConnectsTodayYesterday($address)
     {
         $serversConnectsToday = [];
