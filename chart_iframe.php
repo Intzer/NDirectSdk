@@ -21,20 +21,4 @@ switch ($type)
     default: $data = $integration->getUnique($days); break;
 }
 
-if (!empty($data)) 
-{
-    $dataArray = json_decode($data, true);
-
-    if (json_last_error() === JSON_ERROR_NONE && is_array($dataArray)) 
-    {
-        $dataArray = array_reverse($dataArray);
-        $data = json_encode($dataArray);
-    } 
-    else 
-    {
-        http_response_code(500);
-        exit("Ошибка отрисоки графика");
-    }
-}
-
 echo $integration->renderChart($data);

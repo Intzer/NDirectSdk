@@ -5,7 +5,7 @@ return [
     'timezone' => 'Europe/Minsk',
 
     // Не менять!
-    'version' => '06.04.2026',
+    'version' => '26.05.2026',
 
     // Режим отладки (1 - да, 0 - нет)
     'debug' => false,
